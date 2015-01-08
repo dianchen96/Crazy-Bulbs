@@ -7,21 +7,30 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
+#import "GameModeScene.h"
 
 @implementation ViewController
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Play the background music
+//    NSError *error;
+//    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"BGM" withExtension:@"mp3"];
+//    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+//    self.backgroundMusicPlayer.numberOfLoops = -1;
+//    [self.backgroundMusicPlayer prepareToPlay];
+//    [self.backgroundMusicPlayer play];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    skView.showsFPS = NO;
+    skView.showsNodeCount = NO;
     
     // Create and configure the scene.
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
+    SKScene * scene = [[GameModeScene alloc] initWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
